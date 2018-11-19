@@ -17,15 +17,15 @@ A program which calculates odds for NHL games, and possibly playoff odds in the 
 #### Special Teams
 - ((PPG_Home / (PPG_Away + PPG_Home)) * .5) + (PPGA_Away / (PPGA_Home + PPGA_Away) * .5)
 
-### Behavior
+## Behavior
 - Specified by command line flags
-#### Flags
+### Flags
 - 'g' generate: generate odds for todays games store results in a file
 - 's' <int> simulate: simulate some number of runs through the rest of the season, specified by the passed integer. Return playoff odds
 - 'a' archive: move old generated odds files to an archive to speed up checking
 - 'c' check: check generated odds against actual results and report accuracy
 
-### Future Improvements
+## Future Improvements
 - Weigh stats to count recent games for more
 - Get team stats once instead of once per function that needs it
 - Find a way to eliminate repetition in special teams and shooting functions
@@ -37,5 +37,5 @@ A program which calculates odds for NHL games, and possibly playoff odds in the 
 - Add the usage function
 - After changing the factor system to use dynamic weights make weight of h2h factor depend on number of games played against each other
 
-### Versions
+## Versions
 - 1.0.0: Basic system generate a file for the results of a daily odds generation and can check the results of past generated odds
