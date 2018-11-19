@@ -1,11 +1,12 @@
 # NHL Odds
-A program which odds for games on a particular day, and possibly playoff odds in the 
+A program which calculates odds for NHL games, and possibly playoff odds in the future
 ## Algorithm
 ### Four Factors
 - Overall Record
 - Head to Head Record
-- Possession
--Multiplying these three together gives chance home team will win as a decimal from 0 - 1
+- Shots for and against
+- Special teams
+- Multiplying these four together gives chance home team will win as a decimal from 0 - 1
 #### Overall Record
 - (Points % Home) / (Points % Away + Points % Home)
 #### H2H
@@ -21,6 +22,7 @@ A program which odds for games on a particular day, and possibly playoff odds in
 #### Flags
 - 'g' generate: generate odds for todays games store results in a file
 - 's' <int> simulate: simulate some number of runs through the rest of the season, specified by the passed integer. Return playoff odds
+- 'a' archive: move old generated odds files to an archive to speed up checking
 - 'c' check: check generated odds against actual results and report accuracy
 
 ### Future Improvements
@@ -32,8 +34,8 @@ A program which odds for games on a particular day, and possibly playoff odds in
 - Add multithreading
 - Add overall home/away strength as a factor
 - Possibly switch to using wins percentage instead of points percentage
+- Add the usage function
 - After changing the factor system to use dynamic weights make weight of h2h factor depend on number of games played against each other
 
 ### Versions
 - 1.0.0: Basic system generate a file for the results of a daily odds generation and can check the results of past generated odds
-- 
