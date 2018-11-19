@@ -1,0 +1,9 @@
+2018020265 0.6135893517394608 Pittsburgh Penguins @ New Jersey Devils
+2018020266 0.4991356318990616 Vancouver Canucks @ New York Islanders
+2018020267 0.5979449987095081 Florida Panthers @ Philadelphia Flyers
+2018020264 0.46889269250496923 Tampa Bay Lightning @ Buffalo Sabres
+2018020268 0.45903123491368736 Arizona Coyotes @ Detroit Red Wings
+2018020269 0.5219927830400333 Washington Capitals @ Minnesota Wild
+2018020270 0.4840177582383305 Montréal Canadiens @ Edmonton Oilers
+2018020271 0.32617055569729453 Toronto Maple Leafs @ Los Angeles Kings
+2018020272 0.6352838235320335 Nashville Predators @ San Jose Sharks

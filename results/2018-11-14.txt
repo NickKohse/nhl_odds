@@ -1,0 +1,4 @@
+2018020273 0.49758780839100913 St. Louis Blues @ Chicago Blackhawks
+2018020274 0.5232328160894715 Washington Capitals @ Winnipeg Jets
+2018020275 0.48116228238488057 Boston Bruins @ Colorado Avalanche
+2018020276 0.6533112830552406 Anaheim Ducks @ Vegas Golden Knights
