@@ -1,0 +1,3 @@
+After 1.0.0
+- Fix Check generated odds function looking past end of results array
+- Switch points percentage to wins percentage

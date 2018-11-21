@@ -7,8 +7,8 @@ CHECKED_TO_FILE="CHECKED_TO.txt"
 HIT_MISS_FILE="HIT_MISS.txt"
 
 def calculate_record_factor(teams)
-	home_pptg = calculate_points_percentage(teams["home"])
-	away_pptg = calculate_points_percentage(teams["away"])
+	home_pptg = calculate_wins_percentage(teams["home"])
+	away_pptg = calculate_wins_percentage(teams["away"])
 	return home_pptg / (home_pptg + away_pptg)
 end
 
@@ -54,11 +54,11 @@ def calculate_special_teams_factor(teams)
 	return (powerplay_factor * 0.5) + (shorthanded_factor * 0.5)
 end
 
-def calculate_points_percentage(team)
+def calculate_wins_percentage(team)
 	w = team["leagueRecord"]["wins"]
 	l = team["leagueRecord"]["losses"]
 	ot = team["leagueRecord"]["ot"]
-	return ((w * 2) + ot).to_f / (w + l + ot).to_f
+	return (w).to_f / (w + l + ot).to_f
 end
 
 def get_team_stats(id)
@@ -119,7 +119,7 @@ def check_all_generated_odds
 		index_of_unchecked -= 1
 	end
 
-	for i in (index_of_unchecked)..(results.length)
+	for i in (index_of_unchecked)..(results.length - 1)
 		if results[i].chomp(".txt") == Time.now.strftime("%Y-%m-%d")
 			#don't want to check results for todays games, as they haven't finished yet
 			latest_is_today = true
