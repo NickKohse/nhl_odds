@@ -83,6 +83,12 @@ def do_daily_prediction
 	
 	response = Net::HTTP.get(NHL_STATS_API_HOST, "/api/v1/schedule")
 	json_response = JSON.parse(response)
+	
+	if json_response["dates"].length == 0
+		puts "No games today ... exiting"
+		return
+	end
+	
 	games = json_response["dates"][0]["games"] #An array of hashes with each representing one game on tonight in the nhl
 	game_results = File.open("results/#{today}.txt", 'w')
 	
