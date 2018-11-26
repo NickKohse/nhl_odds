@@ -28,12 +28,12 @@ A program which calculates odds for NHL games, and possibly playoff odds in the 
 ## Future Improvements
 - Weigh stats to count recent games for more
 - Get team stats once instead of once per function that needs it
-- Find a way to eliminate repetition in special teams and shooting functions
+- Find a way to eliminate repetition in special teams and shooting functions(add team strength class)
 - Find a way to run the job daily from windows
 - Make a system for weighing the factors differently
 - Add multithreading
 - Add overall home/away strength as a factor
-- Possibly switch to using wins percentage instead of points percentage
+- Add last X days as factor
 - Add the usage function
 - After changing the factor system to use dynamic weights make weight of h2h factor depend on number of games played against each other
 

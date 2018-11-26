@@ -2,3 +2,4 @@ After 1.0.0
 - Fix Check generated odds function looking past end of results array
 - Switch points percentage to wins percentage
 - Check if there are games tonight before trying to generate odds
+- Store team stats longer to reduce number of calls to NHL API

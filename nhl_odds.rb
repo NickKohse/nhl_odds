@@ -1,11 +1,10 @@
 require 'net/http'
 require 'json'
 
-NHL_STATS_API_HOST="statsapi.web.nhl.com"
-SEASON_START_DATE="2018-10-02"
-CHECKED_TO_FILE="CHECKED_TO.txt"
-HIT_MISS_FILE="HIT_MISS.txt"
-
+require_realtive 'team_strength.rb'
+require_relative 'team_compare.rb'
+require_relative 'constants.rb'
+'''
 def calculate_record_factor(teams)
 	home_pptg = calculate_wins_percentage(teams["home"])
 	away_pptg = calculate_wins_percentage(teams["away"])
@@ -61,7 +60,7 @@ def calculate_wins_percentage(team)
 	return (w).to_f / (w + l + ot).to_f
 end
 
-def get_team_stats(id)
+def get_team_stats(id) #might not need this function here as its in team strength class now
 	response = Net::HTTP.get(NHL_STATS_API_HOST, "/api/v1/teams/#{id}?expand=team.stats")
 	json_response = JSON.parse(response)
 	return json_response["teams"][0]["teamStats"][0]["splits"][0]["stat"]
@@ -72,7 +71,7 @@ def get_completed_schedule(id)
 	json_response = JSON.parse(response)
 	return json_response["dates"]
 end
-
+'''
 def do_daily_prediction
 	start_time = Time.now
 	today = Time.now.strftime("%Y-%m-%d")
@@ -81,7 +80,7 @@ def do_daily_prediction
 		return
 	end
 	
-	response = Net::HTTP.get(NHL_STATS_API_HOST, "/api/v1/schedule")
+	response = Net::HTTP.get(NHL_STATS_API_HOST, "/api/v1/schedule?date=#{today}")
 	json_response = JSON.parse(response)
 	
 	if json_response["dates"].length == 0
@@ -93,11 +92,16 @@ def do_daily_prediction
 	game_results = File.open("results/#{today}.txt", 'w')
 	
 	games.each do |game|
+		'''
 		record_factor = calculate_record_factor(game["teams"])
 		h2h_factor = calculate_h2h_factor(game["teams"]["home"]["team"]["id"], game["teams"]["away"]["team"]["id"])
 		shots_factor = calculate_shooting_factor(game["teams"])
 		special_teams_factor = calculate_special_teams_factor(game["teams"])
-		strength_factor = (shots_factor + special_teams_factor + record_factor + h2h_factor) / 4
+		'''
+		home = Team_Strength.new(game["teams"]["home"]["team"]["id"])
+		away = Team_Strength.new(game["teams"]["away"]["team"]["id"])
+		matchup = Team_Compare.new(home, away)
+		strength_factor = matchup.compare #(shots_factor + special_teams_factor + record_factor + h2h_factor) / 4
 		
 		puts "#{game["teams"]["away"]["team"]["name"]} @ #{game["teams"]["home"]["team"]["name"]} #{strength_factor}"
 		game_results.write("#{game["gamePk"]} #{strength_factor} #{game["teams"]["away"]["team"]["name"]} @ #{game["teams"]["home"]["team"]["name"]}\n")

@@ -1,0 +1,4 @@
+2018020358 0.49820414253570944 Calgary Flames @ Arizona Coyotes
+2018020359 0.6541559352630765 New Jersey Devils @ Tampa Bay Lightning
+2018020360 0.43176356400717175 Anaheim Ducks @ Nashville Predators
+2018020361 0.45782530456894033 Edmonton Oilers @ Los Angeles Kings

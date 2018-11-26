@@ -1,0 +1,11 @@
+2018020347 0.3666263854208261 Washington Capitals @ New York Rangers
+2018020354 0.3455822445783544 Winnipeg Jets @ St. Louis Blues
+2018020348 0.5506493667788369 Philadelphia Flyers @ Toronto Maple Leafs
+2018020349 0.6016229112194046 Boston Bruins @ Montréal Canadiens
+2018020350 0.4645717396276611 Buffalo Sabres @ Detroit Red Wings
+2018020351 0.5353636906470952 Chicago Blackhawks @ Florida Panthers
+2018020352 0.6137863075748424 Carolina Hurricanes @ New York Islanders
+2018020353 0.48821350176317707 Columbus Blue Jackets @ Pittsburgh Penguins
+2018020355 0.513922207082783 Dallas Stars @ Colorado Avalanche
+2018020356 0.4683679816122049 San Jose Sharks @ Vegas Golden Knights
+2018020357 0.4802610496280636 Vancouver Canucks @ Los Angeles Kings
