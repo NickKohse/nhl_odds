@@ -34,10 +34,6 @@ class Team_Compare
 	
 	def determine_overall_strength_factor
 		#change this function to dynamically weigh factors
-		puts @record_factor
-		puts @shots_factor
-		puts @special_teams_factor
-		puts @h2h_factor
 		return (@record_factor + @shots_factor + @special_teams_factor + @h2h_factor) * 0.25
 	end
 	
@@ -68,12 +64,3 @@ class Team_Compare
 	end
 end
 
-
-#test driver
-
-home = Team_Strength.new(4)
-away = Team_Strength.new(10)
-
-game = Team_Compare.new(home, away)
-
-puts game.compare

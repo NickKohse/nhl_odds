@@ -1,77 +1,10 @@
 require 'net/http'
 require 'json'
 
-require_realtive 'team_strength.rb'
+require_relative 'team_strength.rb'
 require_relative 'team_compare.rb'
 require_relative 'constants.rb'
-'''
-def calculate_record_factor(teams)
-	home_pptg = calculate_wins_percentage(teams["home"])
-	away_pptg = calculate_wins_percentage(teams["away"])
-	return home_pptg / (home_pptg + away_pptg)
-end
 
-def calculate_h2h_factor(home_id, away_id)
-	home_games_played = get_completed_schedule(home_id)
-	wins = 0
-	games = 0
-	home_games_played.each do |game|
-		if game["games"][0]["teams"]["away"]["team"]["id"] == away_id
-			if game["games"][0]["teams"]["away"]["score"] < game["games"][0]["teams"]["home"]["score"]
-				wins += 1
-			end
-			games += 1
-		elsif game["games"][0]["teams"]["home"]["team"]["id"] == away_id
-			if game["games"][0]["teams"]["away"]["score"] > game["games"][0]["teams"]["home"]["score"]
-				wins += 1
-			end
-			games += 1
-		end
-	end
-	if games == 0
-		return 0.5
-	else
-		return wins.to_f / games.to_f
-	end
-end
-
-def calculate_shooting_factor(teams)
-	away_stats = get_team_stats(teams["away"]["team"]["id"])
-	home_stats = get_team_stats(teams["home"]["team"]["id"])
-	
-	shots_for_factor = home_stats["shotsPerGame"] / (home_stats["shotsPerGame"] + away_stats["shotsPerGame"])
-	shots_against_factor = away_stats["shotsAllowed"] / (away_stats["shotsAllowed"] + home_stats["shotsAllowed"])
-	return (shots_for_factor * 0.5) + (shots_against_factor * 0.5)
-end
-
-def calculate_special_teams_factor(teams)
-	away_stats = get_team_stats(teams["away"]["team"]["id"])
-	home_stats = get_team_stats(teams["home"]["team"]["id"])
-	
-	powerplay_factor = home_stats["powerPlayGoals"] / (home_stats["powerPlayGoals"] + away_stats["powerPlayGoals"])
-	shorthanded_factor = away_stats["powerPlayGoalsAgainst"] / (away_stats["powerPlayGoalsAgainst"] + home_stats["powerPlayGoalsAgainst"])
-	return (powerplay_factor * 0.5) + (shorthanded_factor * 0.5)
-end
-
-def calculate_wins_percentage(team)
-	w = team["leagueRecord"]["wins"]
-	l = team["leagueRecord"]["losses"]
-	ot = team["leagueRecord"]["ot"]
-	return (w).to_f / (w + l + ot).to_f
-end
-
-def get_team_stats(id) #might not need this function here as its in team strength class now
-	response = Net::HTTP.get(NHL_STATS_API_HOST, "/api/v1/teams/#{id}?expand=team.stats")
-	json_response = JSON.parse(response)
-	return json_response["teams"][0]["teamStats"][0]["splits"][0]["stat"]
-end
-
-def get_completed_schedule(id)
-    response = Net::HTTP.get(NHL_STATS_API_HOST, "/api/v1/schedule?teamId=#{id}&startDate=#{SEASON_START_DATE}&endDate=#{(Time.now - 86400).strftime("%Y-%m-%d")}")
-	json_response = JSON.parse(response)
-	return json_response["dates"]
-end
-'''
 def do_daily_prediction
 	start_time = Time.now
 	today = Time.now.strftime("%Y-%m-%d")

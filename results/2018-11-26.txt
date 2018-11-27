@@ -1,0 +1,5 @@
+2018020362 0.38738739257519006 Boston Bruins @ Toronto Maple Leafs
+2018020363 0.3723987283575029 New Jersey Devils @ Florida Panthers
+2018020364 0.48810076935959945 Washington Capitals @ New York Islanders
+2018020365 0.5211205726993193 Ottawa Senators @ New York Rangers
+2018020366 0.47760243960402177 Columbus Blue Jackets @ Detroit Red Wings
