@@ -25,16 +25,11 @@ def do_daily_prediction
 	game_results = File.open("results/#{today}.txt", 'w')
 	
 	games.each do |game|
-		'''
-		record_factor = calculate_record_factor(game["teams"])
-		h2h_factor = calculate_h2h_factor(game["teams"]["home"]["team"]["id"], game["teams"]["away"]["team"]["id"])
-		shots_factor = calculate_shooting_factor(game["teams"])
-		special_teams_factor = calculate_special_teams_factor(game["teams"])
-		'''
+
 		home = Team_Strength.new(game["teams"]["home"]["team"]["id"])
 		away = Team_Strength.new(game["teams"]["away"]["team"]["id"])
 		matchup = Team_Compare.new(home, away)
-		strength_factor = matchup.compare #(shots_factor + special_teams_factor + record_factor + h2h_factor) / 4
+		strength_factor = matchup.compare
 		
 		puts "#{game["teams"]["away"]["team"]["name"]} @ #{game["teams"]["home"]["team"]["name"]} #{strength_factor}"
 		game_results.write("#{game["gamePk"]} #{strength_factor} #{game["teams"]["away"]["team"]["name"]} @ #{game["teams"]["home"]["team"]["name"]}\n")

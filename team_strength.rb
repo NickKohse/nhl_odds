@@ -5,7 +5,7 @@ require_relative 'constants.rb'
 
 class Team_Strength
 	def initialize(id)
-		#store the values in a has, or just extract the already existing hash to reduce the number of attr_readers
+		#store the values in a hash, or just extract the already existing hash to reduce the number of attr_readers
 		@team_id = id 
 		@stats = get_team_stats(id)
 

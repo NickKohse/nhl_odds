@@ -33,8 +33,9 @@ class Team_Compare
 	end
 	
 	def determine_overall_strength_factor
-		#change this function to dynamically weigh factors
-		return (@record_factor + @shots_factor + @special_teams_factor + @h2h_factor) * 0.25
+		h2h_multiplier = @h2h_games * 0.05
+		record_multiplier = 0.7 - h2h_multiplier
+		return (@record_factor * record_multiplier) + (@shots_factor * 0.15) + (@special_teams_factor * 0.15) + (@h2h_factor * h2h_multiplier)
 	end
 	
 	def calculate_h2h_factor
