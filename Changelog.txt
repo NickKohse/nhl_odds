@@ -3,3 +3,6 @@ After 1.0.0
 - Switch points percentage to wins percentage
 - Check if there are games tonight before trying to generate odds
 - Store team stats longer to reduce number of calls to NHL API
+- Change h2h weight depending on 3 of games against each other
+- Added recent factor
+- Store info from team_strength class in one hash

@@ -16,30 +16,25 @@ class Team_Compare
 		return determine_overall_strength_factor
 	end
 	
-	def get_completed_schedule(id)
-		response = Net::HTTP.get(NHL_STATS_API_HOST, "/api/v1/schedule?teamId=#{id}&startDate=#{SEASON_START_DATE}&endDate=#{(Time.now - 86400).strftime("%Y-%m-%d")}")
-		json_response = JSON.parse(response)
-		return json_response["dates"]
-	end
-	
 	def calculate_factors
-		@record_factor = @home.record_factor / (@away.record_factor + @home.record_factor)
-		shots_for_factor = @home.shots_for / (@away.shots_for + @home.shots_for)
-		shots_against_factor = @away.shots_against / (@home.shots_against + @away.shots_against)
+		@record_factor = @home.team_info["record_factor"] / (@away.team_info["record_factor"] + @home.team_info["record_factor"])
+		shots_for_factor = @home.team_info["shots_for"] / (@away.team_info["shots_for"] + @home.team_info["shots_for"])
+		shots_against_factor = @away.team_info["shots_against"] / (@home.team_info["shots_against"] + @away.team_info["shots_against"])
 		@shots_factor = (shots_against_factor + shots_for_factor) * 0.5
-		ppg_factor = @home.ppg / (@away.ppg + @home.ppg)
-		ppga_factor = @away.ppga / (@home.ppga + @away.ppga)
+		ppg_factor = @home.team_info["ppg"] / (@away.team_info["ppg"] + @home.team_info["ppg"])
+		ppga_factor = @away.team_info{"ppga"] / (@home.team_info["ppga"] + @away.team_info["ppga"])
 		@special_teams_factor = (ppg_factor + ppga_factor) * 0.5
+		@recent_factor = @home.team_info["recent_factor"] / (@away.team_info["recent_factor"] + @home.team_info["recent_factor"])
 	end
 	
 	def determine_overall_strength_factor
 		h2h_multiplier = @h2h_games * 0.05
-		record_multiplier = 0.7 - h2h_multiplier
-		return (@record_factor * record_multiplier) + (@shots_factor * 0.15) + (@special_teams_factor * 0.15) + (@h2h_factor * h2h_multiplier)
+		record_multiplier = 0.5 - h2h_multiplier #will need to change this to work for playoffs
+		return (@record_factor * record_multiplier) + (@shots_factor * 0.15) + (@special_teams_factor * 0.15) + (@recent_factor * 0.2) + (@h2h_factor * h2h_multiplier)
 	end
 	
 	def calculate_h2h_factor
-		home_games_played = get_completed_schedule(@home.team_id)
+		home_games_played = @home.team_info["completed_schedule"]
 		wins = 0
 		games = 0
 		home_games_played.each do |game|

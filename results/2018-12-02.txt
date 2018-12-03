@@ -1,0 +1,6 @@
+2018020407 0.5596238052542448 Anaheim Ducks @ Washington Capitals
+2018020408 0.44972843366633924 Winnipeg Jets @ New York Rangers
+2018020411 0.36963745490374517 Calgary Flames @ Chicago Blackhawks
+2018020409 0.48976141161357034 San Jose Sharks @ Montréal Canadiens
+2018020410 0.4473207130900685 Colorado Avalanche @ Detroit Red Wings
+2018020412 0.42759962119570694 Carolina Hurricanes @ Los Angeles Kings

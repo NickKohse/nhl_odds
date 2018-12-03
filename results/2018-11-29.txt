@@ -1,0 +1,8 @@
+2018020382 0.5185749635971005 New York Islanders @ Boston Bruins
+2018020383 0.48828571373340424 Minnesota Wild @ Columbus Blue Jackets
+2018020384 0.4289489046723471 New York Rangers @ Ottawa Senators
+2018020385 0.4778924230007512 Buffalo Sabres @ Tampa Bay Lightning
+2018020386 0.5404268091719876 Arizona Coyotes @ Nashville Predators
+2018020387 0.5977673175770699 Chicago Blackhawks @ Winnipeg Jets
+2018020388 0.5162837760125817 Los Angeles Kings @ Edmonton Oilers
+2018020389 0.4758471706373266 Vegas Golden Knights @ Vancouver Canucks
