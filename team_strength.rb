@@ -34,7 +34,7 @@ class Team_Strength
 	end
 	
 	def get_recent_factor
-		last_x = 10
+		last_x = 7
 		index = @team_info["completed_schedule"].length - 1
 		count = 0
 		wins = 0

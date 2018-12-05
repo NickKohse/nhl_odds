@@ -22,15 +22,15 @@ class Team_Compare
 		shots_against_factor = @away.team_info["shots_against"] / (@home.team_info["shots_against"] + @away.team_info["shots_against"])
 		@shots_factor = (shots_against_factor + shots_for_factor) * 0.5
 		ppg_factor = @home.team_info["ppg"] / (@away.team_info["ppg"] + @home.team_info["ppg"])
-		ppga_factor = @away.team_info{"ppga"] / (@home.team_info["ppga"] + @away.team_info["ppga"])
+		ppga_factor = @away.team_info["ppga"] / (@home.team_info["ppga"] + @away.team_info["ppga"])
 		@special_teams_factor = (ppg_factor + ppga_factor) * 0.5
 		@recent_factor = @home.team_info["recent_factor"] / (@away.team_info["recent_factor"] + @home.team_info["recent_factor"])
 	end
 	
 	def determine_overall_strength_factor
 		h2h_multiplier = @h2h_games * 0.05
-		record_multiplier = 0.5 - h2h_multiplier #will need to change this to work for playoffs
-		return (@record_factor * record_multiplier) + (@shots_factor * 0.15) + (@special_teams_factor * 0.15) + (@recent_factor * 0.2) + (@h2h_factor * h2h_multiplier)
+		record_multiplier = 0.55 - h2h_multiplier #will need to change this to work for playoffs
+		return (@record_factor * record_multiplier) + (@shots_factor * 0.15) + (@special_teams_factor * 0.15) + (@recent_factor * 0.15) + (@h2h_factor * h2h_multiplier)
 	end
 	
 	def calculate_h2h_factor

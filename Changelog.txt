@@ -6,3 +6,4 @@ After 1.0.0
 - Change h2h weight depending on 3 of games against each other
 - Added recent factor
 - Store info from team_strength class in one hash
+- Add recent factor

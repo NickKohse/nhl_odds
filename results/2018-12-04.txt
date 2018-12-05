@@ -1,0 +1,10 @@
+2018020418 0.4524791670137591 Winnipeg Jets @ New York Islanders
+2018020419 0.38653623226437434 Colorado Avalanche @ Pittsburgh Penguins
+2018020420 0.49044041770156044 Calgary Flames @ Columbus Blue Jackets
+2018020417 0.4405846525239118 Boston Bruins @ Florida Panthers
+2018020416 0.46858689201440257 Toronto Maple Leafs @ Buffalo Sabres
+2018020421 0.453655201371745 Ottawa Senators @ Montréal Canadiens
+2018020422 0.3806286571074425 Tampa Bay Lightning @ Detroit Red Wings
+2018020423 0.39059975942228325 Minnesota Wild @ Vancouver Canucks
+2018020424 0.46117659894713126 Washington Capitals @ Vegas Golden Knights
+2018020425 0.44654591937096233 Arizona Coyotes @ Los Angeles Kings
