@@ -99,16 +99,26 @@ def check_all_generated_odds
 	hit_miss.close
 end
 
+def usage
+	puts "==============================NHL_ODDS Usage==============================
+-a --archive : Archive the old results files [Planned]
+-c --check :  past results to determine lifetime system accuracy
+-g --generate : Generate the odds for todays games, save results in file
+-h --help : Display this help message
+-s --simulate [int] : Simulate the remainder of the regular season the 
+		      specificed number of times, display playoffs odds[Planned]"
+end
+
 
 if ARGV.length > 1
-	puts "Please specify on operation at a time."
+	puts "Please specify one operation at a time."
 elsif ARGV.length == 0
 	puts "You must specify an operation"
 	#Print usage
 else
 	case ARGV[0]
 		when "-h", "--help"
-			#"print usage
+			usage
 		when "-g", "--generate"
 			do_daily_prediction
 		when "-c", "--check"
@@ -118,7 +128,7 @@ else
 		when "-a", "--archive"
 			#archive the old results files, ie move them somewhere else and maybe compress them
 		else
-			puts "invalid option"
-			#print usage
+			puts "Invalid option, see usage:\n"
+			usage
 	end
 end

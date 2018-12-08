@@ -19,6 +19,7 @@ class Team_Strength
 		@team_info["shots_against"] = stats["shotsAllowed"].to_f
 		@team_info["completed_schedule"] = get_completed_schedule
 		@team_info["recent_factor"] = get_recent_factor
+		get_venue_factors
 	end
 	
 	def get_team_stats
@@ -49,7 +50,25 @@ class Team_Strength
 			index -= 1
 		end
 		
-		return wins.to_f / last_x.to_f
+		return wins.to_f / last_x
+	end
+	
+	def get_venue_factors
+		home_w = 0
+		home_g = 0
+		away_w = 0
+		away_g = 0
+		@team_info["completed_schedule"].each do |game|
+			if game["games"][0]["teams"]["away"]["team"]["id"] == @team_id
+				away_w += 1 if game["games"][0]["teams"]["away"]["score"] > game["games"][0]["teams"]["home"]["score"]
+				away_g += 1
+			else
+				home_w +=1 if game["games"][0]["teams"]["away"]["score"] < game["games"][0]["teams"]["home"]["score"]
+				home_g += 1
+			end
+		end
+		@team_info["away_record_factor"] = away_w.to_f / away_g
+		@team_info["home_record_factor"] = home_w.to_f / home_g
 	end
 	
 	attr_reader :team_id
