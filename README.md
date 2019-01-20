@@ -41,6 +41,7 @@ A program which calculates odds for NHL games, and possibly playoff odds in the 
 - After changing the factor system to use dynamic weights make weight of h2h factor depend on number of games played against each other
 - Make season simulator give points for ot wins according to the teams rate of losing in overtime
 - Add the option of archiving old results files
+- Add a system of tie breakers for season simulation
 
 ## Versions
 - 1.0.0: Basic system generate a file for the results of a daily odds generation and can check the results of past generated odds
