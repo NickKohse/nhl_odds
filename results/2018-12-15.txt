@@ -1,0 +1,10 @@
+2018020495 0.45020857150509264 Calgary Flames @ Minnesota Wild
+2018020496 0.5768725541891693 Ottawa Senators @ Montréal Canadiens
+2018020497 0.3896911675221439 Toronto Maple Leafs @ Florida Panthers
+2018020498 0.5415656527416342 Detroit Red Wings @ New York Islanders
+2018020499 0.5937338239684841 Los Angeles Kings @ Pittsburgh Penguins
+2018020500 0.5300525721201174 Buffalo Sabres @ Washington Capitals
+2018020501 0.47477839257074 Anaheim Ducks @ Columbus Blue Jackets
+2018020502 0.65457585439824 New Jersey Devils @ Nashville Predators
+2018020503 0.5318530775121891 Dallas Stars @ Colorado Avalanche
+2018020504 0.5164559195883792 Philadelphia Flyers @ Vancouver Canucks

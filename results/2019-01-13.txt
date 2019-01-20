@@ -1,0 +1,6 @@
+2018020699 0.4791996845962756 Nashville Predators @ Carolina Hurricanes
+2018020701 0.6334471271550067 Anaheim Ducks @ Winnipeg Jets
+2018020700 0.583153449921354 New York Rangers @ Columbus Blue Jackets
+2018020703 0.5430790930845956 Florida Panthers @ Vancouver Canucks
+2018020702 0.402841819528513 Tampa Bay Lightning @ New York Islanders
+2018020704 0.5780109126004496 Arizona Coyotes @ Calgary Flames

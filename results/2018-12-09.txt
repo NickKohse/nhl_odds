@@ -1,0 +1,7 @@
+2018020454 0.5188100443519225 Vancouver Canucks @ St. Louis Blues
+2018020455 0.5722670125184863 Philadelphia Flyers @ Winnipeg Jets
+2018020456 0.45404378749630997 Boston Bruins @ Ottawa Senators
+2018020457 0.39597215537898106 Montréal Canadiens @ Chicago Blackhawks
+2018020458 0.5877352200895524 New Jersey Devils @ Anaheim Ducks
+2018020460 0.5180458323002938 Dallas Stars @ Vegas Golden Knights
+2018020459 0.4412468997891079 Calgary Flames @ Edmonton Oilers

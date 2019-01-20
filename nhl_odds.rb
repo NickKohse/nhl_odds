@@ -99,6 +99,13 @@ def check_all_generated_odds
 	hit_miss.close
 end
 
+def simulate_season
+	puts "Work in progress"
+	exit
+	
+	
+end
+
 def usage
 	puts "==============================NHL_ODDS Usage==============================
 -a --archive : Archive the old results files [Planned]
@@ -124,7 +131,7 @@ else
 		when "-c", "--check"
 			check_all_generated_odds
 		when "-s", "--simulate"
-			#simulate remainder of regular season
+			simulate_season
 		when "-a", "--archive"
 			#archive the old results files, ie move them somewhere else and maybe compress them
 		else
