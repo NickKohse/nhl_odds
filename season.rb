@@ -22,11 +22,13 @@ class Season
 		json_response = JSON.parse(response)
 		div_standings = Hash.new
 		@strengths = Hash.new
+		@names = Hash.new
 		json_response["records"].each do |division|
 			div_standings[division["division"]["name"]] = Hash.new
 			division["teamRecords"].each do |team|
 				div_standings[division["division"]["name"]][team["team"]["id"]] = team["points"]
 				@strengths[team["team"]["id"]] = Team_Strength.new(team["team"]["id"])
+				@names[team["team"]["id"]] = team["team"]["name"]
 			end
 		end
 		return div_standings
@@ -97,7 +99,12 @@ class Season
 		puts standings_copy
 		east_playoffs = determine_playoff_spots(standings_copy["Metropolitan"], standings_copy["Atlantic"])
 		west_playoffs = determine_playoff_spots(standings_copy["Central"], standings_copy["Pacific"])
-		
+		east_playoffs.each do |id|
+			puts "#{@names[id]} made the playoffs in the east"
+		end
+		west_playoffs.each do |id|
+			puts "#{@names[id]} made the playoffs in the west"
+		end
 		#determine whose in the playoffs
 		
 	end
