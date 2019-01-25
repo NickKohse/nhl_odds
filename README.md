@@ -43,6 +43,7 @@ A program which calculates odds for NHL games, and possibly playoff odds in the 
 - Add the option of archiving old results files
 - Add a system of tie breakers for season simulation
 - Add something to check if dependancies i.e. a file named CHECKED_TO a file named HIT_MISS and a direcotry called results exist before running the script
+- Add odds for pres. trpohy to season sim
 
 ## Versions
 - 1.0.0: Basic system generate a file for the results of a daily odds generation and can check the results of past generated odds
