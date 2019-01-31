@@ -53,6 +53,7 @@ class Season
 		sorted1 = div1.sort_by { |k,v| -v } 
 		sorted2 = div2.sort_by { |k,v| -v }
 		#TODO: for top 5 in each division fix any ties
+		#TODO: find pres trophy winner in here
 		for i in 0..2
 			playoff_teams.push(sorted1[i][0])
 			playoff_teams.push(sorted2[i][0])
@@ -77,6 +78,7 @@ class Season
 		return playoff_teams
 	end
 	
+	
 	def simulate_season
 		randomizer = Random.new
 		standings_copy = @standings # to prevent multi access issues
@@ -84,7 +86,7 @@ class Season
 			next if day["date"] == ASG_DATE
 			day["games"].each do |game|
 				#puts "home id: #{game["teams"]["home"]["team"]["id"]} | away id: #{game["teams"]["home"]["team"]["id"]}"
-				result = Team_Compare.new(@strengths[game["teams"]["home"]["team"]["id"]], @strengths[game["teams"]["away"]["team"]["id"]])
+				result = Team_Compare.new(@strengths[game["teams"]["home"]["team"]["id"]], @strengths[game["teams"]["away"]["team"]["id"]], true)
 				odds = result.compare
 				game_result = randomizer.rand
 				if odds > game_result
@@ -109,6 +111,7 @@ class Season
 		end
 		east_playoffs = Hash.new
 		west_playoffs = Hash.new
+		pres_trophy = Hash.new
 		threads.each do |t|
 			playoff_teams = t.value
 			playoff_teams[:east].each do |id|
@@ -130,11 +133,11 @@ class Season
 		
 		puts "Eastern Conference"
 		east_playoffs.each do |id, count|
-			puts "#{@names[id]} have a #{(count.to_f / n) * 100}% chance of making the playoffs"
+			puts "#{@names[id]} have a #{((count.to_f / n) * 100).round(2)}% chance of making the playoffs"
 		end
 		puts "Western Conference"
 		west_playoffs.each do |id, count|
-			puts "#{@names[id]} have a #{(count.to_f / n) * 100}% chance of making the playoffs"
+			puts "#{@names[id]} have a #{((count.to_f / n) * 100).round(2)}% chance of making the playoffs"
 		end
 	end
 end
@@ -144,4 +147,4 @@ end
 
 s = Season.new
 #s.test
-s.simulate_season_controller(1000)
+s.simulate_season_controller(1)
