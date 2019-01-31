@@ -53,13 +53,22 @@ class Season
 		sorted1 = div1.sort_by { |k,v| -v } 
 		sorted2 = div2.sort_by { |k,v| -v }
 		#TODO: for top 5 in each division fix any ties
-		#TODO: find pres trophy winner in here
+		if sorted1[0][1] > sorted2[0][1]
+			top_conf = sorted1[0][0]
+			top_conf_points = sorted1[0][1]
+		else
+			top_conf = sorted2[0][0]
+			top_conf_points = sorted2[0][1]
+		end
+			
 		for i in 0..2
 			playoff_teams.push(sorted1[i][0])
 			playoff_teams.push(sorted2[i][0])
 		end
+
 		#spots 3 and four in arrays are potential wildcard candidates, will need special cases if the are equal
 		#admittedly somewhat confusing
+
 		if sorted1[3][1] > sorted2[3][1]
 			playoff_teams.push(sorted1[3][0])
 			if sorted1[4][1] > sorted2[3][1]
@@ -75,7 +84,8 @@ class Season
 				playoff_teams.push(sorted1[3][0])
 			end
 		end
-		return playoff_teams
+
+		return {:teams => playoff_teams, :top_id => top_conf , :top_points => top_conf_points}
 	end
 	
 	
@@ -96,10 +106,11 @@ class Season
 				end
 			end
 		end
-		east_playoffs = determine_playoff_spots(standings_copy["Metropolitan"], standings_copy["Atlantic"])
-		west_playoffs = determine_playoff_spots(standings_copy["Central"], standings_copy["Pacific"])
+		east_playoff_info = determine_playoff_spots(standings_copy["Metropolitan"], standings_copy["Atlantic"])
+		west_playoff_info = determine_playoff_spots(standings_copy["Central"], standings_copy["Pacific"])
+		west_playoff_info[:top_points] > east_playoff_info[:top_points] ? pres_id = west_playoff_info[:top_id] : pres_id = east_playoff_info[:top_id]
 
-		return {:west => west_playoffs, :east => east_playoffs}
+		return {:west => west_playoff_info[:teams], :east => east_playoff_info[:teams], :pres => pres_id}
 	end
 
 	def simulate_season_controller(n)
@@ -114,6 +125,13 @@ class Season
 		pres_trophy = Hash.new
 		threads.each do |t|
 			playoff_teams = t.value
+
+			if pres_trophy.key?(playoff_teams[:pres]) #write a function to do this hash incrementing
+				pres_trophy[playoff_teams[:pres]] += 1
+			else
+				pres_trophy[playoff_teams[:pres]] = 1
+			end
+
 			playoff_teams[:east].each do |id|
 				if east_playoffs.key?(id)
 					east_playoffs[id] += 1
@@ -131,20 +149,23 @@ class Season
 			end
 		end
 		
-		puts "Eastern Conference"
+		puts "Eastern Conference:"
 		east_playoffs.each do |id, count|
 			puts "#{@names[id]} have a #{((count.to_f / n) * 100).round(2)}% chance of making the playoffs"
 		end
-		puts "Western Conference"
+		puts "Western Conference:"
 		west_playoffs.each do |id, count|
 			puts "#{@names[id]} have a #{((count.to_f / n) * 100).round(2)}% chance of making the playoffs"
 		end
+		puts "Presidents Trophy:"
+		pres_trophy.each do |id, count|
+			puts "#{@names[id]} have a #{((count.to_f / n) * 100).round(2)}% chance of winning the presidents trophy"
+		end
 	end
 end
-
 
 #test driver
 
 s = Season.new
 #s.test
-s.simulate_season_controller(1)
+s.simulate_season_controller(100)
