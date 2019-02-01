@@ -39,6 +39,14 @@ class Season
 		json_response = JSON.parse(response)
 		return json_response["dates"]
 	end
+
+	def gen_forward_factors
+		forward_factors = Hash.new
+		@strengths.each do |id, v|
+			forward_factors[id] = Random.rand(1..10)
+		end
+		return forward_factors
+	end
 	
 	def add_points(win_id, standings)
 		standings.each do |div|
@@ -90,13 +98,15 @@ class Season
 	
 	
 	def simulate_season
+		forward_factors = gen_forward_factors
 		randomizer = Random.new
 		standings_copy = @standings # to prevent multi access issues
 		@remaining_schedule.each do |day|
 			next if day["date"] == ASG_DATE
 			day["games"].each do |game|
 				#puts "home id: #{game["teams"]["home"]["team"]["id"]} | away id: #{game["teams"]["home"]["team"]["id"]}"
-				result = Team_Compare.new(@strengths[game["teams"]["home"]["team"]["id"]], @strengths[game["teams"]["away"]["team"]["id"]], true)
+				result = Team_Compare.new(@strengths[game["teams"]["home"]["team"]["id"]], @strengths[game["teams"]["away"]["team"]["id"]], true,
+					forward_factors[game["teams"]["home"]["team"]["id"]], forward_factors[game["teams"]["away"]["team"]["id"]])
 				odds = result.compare
 				game_result = randomizer.rand
 				if odds > game_result
@@ -168,4 +178,4 @@ end
 
 s = Season.new
 #s.test
-s.simulate_season_controller(100)
+s.simulate_season_controller(1000)

@@ -5,10 +5,12 @@ require_relative 'team_strength.rb'
 require_relative 'constants.rb'
 
 class Team_Compare
-	def initialize(home, away, season_sim=false)
+	def initialize(home, away, season_sim=false, home_ff=1, away_ff=1)
 		@home = home
 		@away = away	
 		@season_sim = season_sim
+		@home_ff = home_ff
+		@away_ff = away_ff
 	end
 	
 	def compare
@@ -27,6 +29,7 @@ class Team_Compare
 		@special_teams_factor = (ppg_factor + ppga_factor) * 0.5
 		@recent_factor = @home.team_info["recent_factor"] / (@away.team_info["recent_factor"] + @home.team_info["recent_factor"])
 		@venue_factor = @home.team_info["home_record_factor"] / (@home.team_info["home_record_factor"] + @away.team_info["away_record_factor"])
+		@forward_factor = @home_ff / (@home_ff + @away_ff)
 	end
 	
 	def determine_overall_strength_factor
@@ -34,17 +37,13 @@ class Team_Compare
 		record_multiplier = 0.55 - h2h_multiplier #will need to change this to work for playoffs
 		if @season_sim
 			recent_multiplier = 0
-			venue_multiplier = 0.20
-			shots_multiplier = 0.125
-			special_teams_multiplier = 0.125
+			forward_multiplier = 0.10
 		else
 			recent_multiplier = 0.10
-			venue_multiplier = 0.15
-			shots_multiplier = 0.10
-			special_teams_multiplier = 0.10
+			forward_multiplier = 0
 		end
 			
-		return (@record_factor * record_multiplier) + (@shots_factor * shots_multiplier) + (@special_teams_factor * special_teams_multiplier) + (@recent_factor * recent_multiplier) + (@venue_factor * venue_multiplier) + (@h2h_factor * h2h_multiplier)
+		return (@record_factor * record_multiplier) + (@shots_factor * 0.10) + (@special_teams_factor * 0.10) + (@recent_factor * recent_multiplier) + (@venue_factor * 0.15) + (@h2h_factor * h2h_multiplier) + (@forward_factor * forward_multiplier)
 	end
 	
 	def calculate_h2h_factor
