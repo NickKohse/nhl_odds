@@ -48,19 +48,36 @@ class Season
 		return forward_factors
 	end
 	
-	def add_points(win_id, standings)
+	def add_points(id, standings, points)
 		standings.each do |div|
-			if div[1].key?(win_id)
-				div[1][win_id] += 2
+			if div[1].key?(id)
+				div[1][id] += points
 			end
 		end
+	end
+
+	def tie_breaker(div)
+		i = 0
+		while i < 4 #only go this far becuase teams out of top five dont matter
+			if div[i][1] == div[i + 1][1]
+				result = Team_Compare.new(@strengths[div[i][0]], @strengths[div[i + 1][0]])
+				odds = result.compare
+				if odds < 0.5 #we switch the teams, as the team lower in the standings won the tie breaker, else do nothing
+					tmp_id = div[i][0]
+					div[i][0] = div[i + 1][0]
+					div[i + 1][0] = tmp_id
+				end
+			end
+			i += 1
+		end
+		return div
 	end
 	
 	def determine_playoff_spots(div1, div2)
 		playoff_teams = Array.new
-		sorted1 = div1.sort_by { |k,v| -v } 
-		sorted2 = div2.sort_by { |k,v| -v }
-		#TODO: for top 5 in each division fix any ties
+		sorted1 = tie_breaker(div1.sort_by { |k,v| -v })
+		sorted2 = tie_breaker(div2.sort_by { |k,v| -v })
+
 		if sorted1[0][1] > sorted2[0][1]
 			top_conf = sorted1[0][0]
 			top_conf_points = sorted1[0][1]
@@ -95,7 +112,13 @@ class Season
 
 		return {:teams => playoff_teams, :top_id => top_conf , :top_points => top_conf_points}
 	end
-	
+
+	def ot_point(id)
+		randomizer = Random.new
+		ot_point = randomizer.rand
+		return true if ot_point < @strengths[id].team_info["otl_rate"]
+		return false
+	end
 	
 	def simulate_season
 		forward_factors = gen_forward_factors
@@ -110,9 +133,11 @@ class Season
 				odds = result.compare
 				game_result = randomizer.rand
 				if odds > game_result
-					add_points(game["teams"]["home"]["team"]["id"], standings_copy)
+					add_points(game["teams"]["home"]["team"]["id"], standings_copy, 2)
+					add_points(game["teams"]["away"]["team"]["id"], standings_copy, 1) if ot_point(game["teams"]["away"]["team"]["id"])
 				else
-					add_points(game["teams"]["away"]["team"]["id"], standings_copy)
+					add_points(game["teams"]["away"]["team"]["id"], standings_copy, 2)
+					add_points(game["teams"]["home"]["team"]["id"], standings_copy, 1) if ot_point(game["teams"]["home"]["team"]["id"])
 				end
 			end
 		end
@@ -159,23 +184,17 @@ class Season
 			end
 		end
 		
-		puts "Eastern Conference:"
+		puts "Eastern Conference playoff odds:"
 		east_playoffs.each do |id, count|
-			puts "#{@names[id]} have a #{((count.to_f / n) * 100).round(2)}% chance of making the playoffs"
+			puts "#{@names[id]} #{((count.to_f / n) * 100).round(2)}%"
 		end
-		puts "Western Conference:"
+		puts "\nWestern Conference playoffs odds:"
 		west_playoffs.each do |id, count|
-			puts "#{@names[id]} have a #{((count.to_f / n) * 100).round(2)}% chance of making the playoffs"
+			puts "#{@names[id]} #{((count.to_f / n) * 100).round(2)}%"
 		end
-		puts "Presidents Trophy:"
+		puts "\nPresidents Trophy odds:"
 		pres_trophy.each do |id, count|
-			puts "#{@names[id]} have a #{((count.to_f / n) * 100).round(2)}% chance of winning the presidents trophy"
+			puts "#{@names[id]} #{((count.to_f / n) * 100).round(2)}%"
 		end
 	end
 end
-
-#test driver
-
-s = Season.new
-#s.test
-s.simulate_season_controller(1000)
