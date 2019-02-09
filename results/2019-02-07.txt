@@ -1,0 +1,12 @@
+2018020823 0.48070425394648425 Carolina Hurricanes @ Buffalo Sabres
+2018020824 0.4521715756089276 Pittsburgh Penguins @ Florida Panthers
+2018020825 0.37005661896892067 New York Islanders @ New Jersey Devils
+2018020826 0.5642104592796416 Los Angeles Kings @ Philadelphia Flyers
+2018020827 0.5590104098992525 Colorado Avalanche @ Washington Capitals
+2018020828 0.4741081464764987 Winnipeg Jets @ Montréal Canadiens
+2018020829 0.5263279059300496 Anaheim Ducks @ Ottawa Senators
+2018020830 0.4609843972217307 Vegas Golden Knights @ Detroit Red Wings
+2018020831 0.5855858950085475 St. Louis Blues @ Tampa Bay Lightning
+2018020832 0.49219903132801057 Dallas Stars @ Nashville Predators
+2018020833 0.5491529306043618 Edmonton Oilers @ Minnesota Wild
+2018020834 0.4684080945597358 Vancouver Canucks @ Chicago Blackhawks

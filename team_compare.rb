@@ -38,12 +38,14 @@ class Team_Compare
 		if @season_sim
 			recent_multiplier = 0
 			forward_multiplier = 0.10
+			venue_multiplier = 0.15
 		else
 			recent_multiplier = 0.10
 			forward_multiplier = 0
+			venue_multiplier = 0.15
 		end
 			
-		return (@record_factor * record_multiplier) + (@shots_factor * 0.10) + (@special_teams_factor * 0.10) + (@recent_factor * recent_multiplier) + (@venue_factor * 0.15) + (@h2h_factor * h2h_multiplier) + (@forward_factor * forward_multiplier)
+		return (@record_factor * record_multiplier) + (@shots_factor * 0.10) + (@special_teams_factor * 0.10) + (@recent_factor * recent_multiplier) + (@venue_factor * venue_multiplier) + (@h2h_factor * h2h_multiplier) + (@forward_factor * forward_multiplier)
 	end
 	
 	def calculate_h2h_factor
