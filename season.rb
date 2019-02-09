@@ -184,17 +184,21 @@ class Season
 			end
 		end
 		
-		puts "Eastern Conference playoff odds:"
-		east_playoffs.each do |id, count|
-			puts "#{@names[id]} #{((count.to_f / n) * 100).round(2)}%"
+		sorted_east = east_playoffs.sort_by { |k,v| -v }
+		sorted_west = west_playoffs.sort_by { |k,v| -v }
+		sorted_pres = pres_trophy.sort_by { |k,v| -v }
+
+		puts "\nEastern Conference playoff odds:"
+		sorted_east.each do |i|
+			puts "#{@names[i[0]]} #{((i[1].to_f / n) * 100).round(2)}%"
 		end
 		puts "\nWestern Conference playoffs odds:"
-		west_playoffs.each do |id, count|
-			puts "#{@names[id]} #{((count.to_f / n) * 100).round(2)}%"
+		sorted_west.each do |i|
+			puts "#{@names[i[0]]} #{((i[1].to_f / n) * 100).round(2)}%"
 		end
 		puts "\nPresidents Trophy odds:"
-		pres_trophy.each do |id, count|
-			puts "#{@names[id]} #{((count.to_f / n) * 100).round(2)}%"
+		sorted_pres.each do |i|
+			puts "#{@names[i[0]]} #{((i[1].to_f / n) * 100).round(2)}%"
 		end
 	end
 end

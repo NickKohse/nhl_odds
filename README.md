@@ -33,12 +33,10 @@ A program which calculates odds for NHL games, and possibly playoff odds in the 
 
 ## Future Improvements
 - Make a system for weighing the factors differently(a function to do this would be good)
-- Add season simulation and playoff odds
 - Add the option of archiving/deleteing old results files
-- Add something to check if dependancies i.e. a file named CHECKED_TO a file named HIT_MISS and a direcotry called results exist before running the script
 - Run a preformance benchmark and try to imporve on it by any means possible
 - Add playoff simulation, showing who is predicted to win each round
-- Print the playoffs chances in order
+
 
 ## Versions
 - 1.0.0: Basic system generate a file for the results of a daily odds generation and can check the results of past generated odds
