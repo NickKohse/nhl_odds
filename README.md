@@ -37,7 +37,6 @@ A program which calculates odds for NHL games, and possibly playoff odds in the 
 - Run a preformance benchmark and try to imporve on it by any means possible
 - Add playoff simulation, showing who is predicted to win each round
 
-
 ## Versions
 - 1.0.0: Basic system generate a file for the results of a daily odds generation and can check the results of past generated odds
 - 1.1.0: Fix a number of bugs, add more factors to odds weighing, reduce calls to NHL stats API
