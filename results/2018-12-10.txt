@@ -1,0 +1,4 @@
+2018020461 0.5353063300237001 Pittsburgh Penguins @ New York Islanders
+2018020462 0.5054795266655507 Los Angeles Kings @ Detroit Red Wings
+2018020463 0.629961491598819 New York Rangers @ Tampa Bay Lightning
+2018020464 0.5828487726181404 New Jersey Devils @ San Jose Sharks

@@ -19,6 +19,7 @@ class Team_Strength
 		@team_info["shots_against"] = stats["shotsAllowed"].to_f
 		@team_info["completed_schedule"] = get_completed_schedule
 		@team_info["recent_factor"] = get_recent_factor
+		@team_info["otl_rate"] = stats["ot"].to_f / (stats["ot"] + stats["losses"]).to_f
 		get_venue_factors
 	end
 	

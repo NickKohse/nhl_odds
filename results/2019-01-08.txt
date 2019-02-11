@@ -1,0 +1,11 @@
+2018020657 0.5343858256338558 Minnesota Wild @ Boston Bruins
+2018020658 0.5564894140072005 New Jersey Devils @ Buffalo Sabres
+2018020659 0.6040922862995286 Carolina Hurricanes @ New York Islanders
+2018020660 0.552503465729851 Florida Panthers @ Pittsburgh Penguins
+2018020661 0.6443893071871472 Philadelphia Flyers @ Washington Capitals
+2018020662 0.38686293560638807 Montréal Canadiens @ Detroit Red Wings
+2018020663 0.5805714047947951 Columbus Blue Jackets @ Tampa Bay Lightning
+2018020664 0.4786659785651804 Dallas Stars @ St. Louis Blues
+2018020665 0.6022017983628214 Colorado Avalanche @ Winnipeg Jets
+2018020666 0.6318077820787266 New York Rangers @ Vegas Golden Knights
+2018020667 0.5583632597881028 Edmonton Oilers @ San Jose Sharks

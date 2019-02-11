@@ -1,0 +1,12 @@
+2018020530 0.5194367363100735 Anaheim Ducks @ Boston Bruins
+2018020533 0.49230042930088924 Minnesota Wild @ Pittsburgh Penguins
+2018020531 0.5421072982410367 Florida Panthers @ Toronto Maple Leafs
+2018020532 0.413335808908855 Nashville Predators @ Philadelphia Flyers
+2018020534 0.5298885430250669 Detroit Red Wings @ Carolina Hurricanes
+2018020535 0.6055809646890483 New Jersey Devils @ Columbus Blue Jackets
+2018020536 0.6273755449550277 Chicago Blackhawks @ Dallas Stars
+2018020537 0.4689260284880333 Tampa Bay Lightning @ Calgary Flames
+2018020538 0.4560633142386279 Montréal Canadiens @ Arizona Coyotes
+2018020539 0.5402166999366491 St. Louis Blues @ Vancouver Canucks
+2018020540 0.5496462202945909 New York Islanders @ Vegas Golden Knights
+2018020541 0.48808082202166836 Winnipeg Jets @ San Jose Sharks

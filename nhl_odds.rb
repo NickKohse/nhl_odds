@@ -4,6 +4,7 @@ require 'json'
 require_relative 'team_strength.rb'
 require_relative 'team_compare.rb'
 require_relative 'constants.rb'
+require_relative 'season.rb'
 
 def do_daily_prediction
 	start_time = Time.now
@@ -94,9 +95,20 @@ def check_all_generated_odds
 	end
 	hit_miss = File.open(HIT_MISS_FILE, 'w')
 	hit_miss.write("#{hits} #{misses}")
-	puts "Lifetime accuracy for the system including results through yesterday is #{(hits.to_f / (hits + misses)).to_f * 100}%"
+	puts "Lifetime accuracy for the system including results through yesterday is #{((hits.to_f / (hits + misses)).to_f * 100).round(2)}%"
 	check.close
 	hit_miss.close
+end
+
+def simulate_season(n)
+	abort("Second argument must be an integer") if n.to_i.to_s != n
+	season = Season.new
+	season.simulate_season_controller(n.to_i)
+end
+
+def archive
+	puts "Work, in progress"
+	exit 0
 end
 
 def usage
@@ -105,14 +117,12 @@ def usage
 -c --check :  past results to determine lifetime system accuracy
 -g --generate : Generate the odds for todays games, save results in file
 -h --help : Display this help message
--s --simulate [int] : Simulate the remainder of the regular season the 
-		      specificed number of times, display playoffs odds[Planned]"
+-s --simulate <int> : Simulate the remainder of the regular season the 
+			  specificed number of times, display playoffs odds"
+	exit 1
 end
 
-
-if ARGV.length > 1
-	puts "Please specify one operation at a time."
-elsif ARGV.length == 0
+if ARGV.length == 0
 	puts "You must specify an operation"
 	#Print usage
 else
@@ -124,7 +134,8 @@ else
 		when "-c", "--check"
 			check_all_generated_odds
 		when "-s", "--simulate"
-			#simulate remainder of regular season
+			usage if ARGV.length != 2
+			simulate_season(ARGV[1])
 		when "-a", "--archive"
 			#archive the old results files, ie move them somewhere else and maybe compress them
 		else

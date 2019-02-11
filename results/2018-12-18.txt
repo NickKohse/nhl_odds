@@ -1,0 +1,11 @@
+2018020517 0.5570108374424059 Florida Panthers @ Buffalo Sabres
+2018020518 0.38898537896322916 Toronto Maple Leafs @ New Jersey Devils
+2018020519 0.46875705134668244 Anaheim Ducks @ New York Rangers
+2018020520 0.48621839069232675 Detroit Red Wings @ Philadelphia Flyers
+2018020521 0.47239170305678513 San Jose Sharks @ Minnesota Wild
+2018020522 0.32075348265272463 Nashville Predators @ Chicago Blackhawks
+2018020523 0.4736345384582908 Calgary Flames @ Dallas Stars
+2018020524 0.5978507448810163 St. Louis Blues @ Edmonton Oilers
+2018020525 0.4736982210237092 New York Islanders @ Arizona Coyotes
+2018020526 0.43559157723172737 Tampa Bay Lightning @ Vancouver Canucks
+2018020527 0.3181311144315085 Winnipeg Jets @ Los Angeles Kings

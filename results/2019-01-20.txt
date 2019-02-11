@@ -1,0 +1,5 @@
+2018020751 0.3574906626918688 Washington Capitals @ Chicago Blackhawks
+2018020752 0.5497735123858093 Anaheim Ducks @ New York Islanders
+2018020753 0.5162917629125463 Detroit Red Wings @ Vancouver Canucks
+2018020754 0.5338092991809534 Arizona Coyotes @ Toronto Maple Leafs
+2018020755 0.5073992066489038 Carolina Hurricanes @ Edmonton Oilers

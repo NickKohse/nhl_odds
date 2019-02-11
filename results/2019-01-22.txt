@@ -1,0 +1,5 @@
+2018020760 0.4858578358680058 San Jose Sharks @ Washington Capitals
+2018020761 0.4341165314967853 Arizona Coyotes @ Ottawa Senators
+2018020762 0.35794796572613147 New York Islanders @ Chicago Blackhawks
+2018020763 0.5668142827016884 Carolina Hurricanes @ Calgary Flames
+2018020764 0.5869511671208132 Detroit Red Wings @ Edmonton Oilers

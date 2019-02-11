@@ -1,0 +1,8 @@
+2018020781 0.5744759208278907 Chicago Blackhawks @ Buffalo Sabres
+2018020784 0.5148029434036135 Ottawa Senators @ Pittsburgh Penguins
+2018020782 0.49135540057096255 Nashville Predators @ Florida Panthers
+2018020783 0.46299571784493865 Tampa Bay Lightning @ New York Islanders
+2018020785 0.43710369787125064 Calgary Flames @ Washington Capitals
+2018020786 0.3957451916692515 Toronto Maple Leafs @ Detroit Red Wings
+2018020787 0.4632816761645081 Vegas Golden Knights @ Carolina Hurricanes
+2018020788 0.491430393594786 Minnesota Wild @ Dallas Stars

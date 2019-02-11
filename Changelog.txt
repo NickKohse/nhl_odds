@@ -9,3 +9,6 @@ For 1.1.0
 - Add recent factor
 - Add venue factor
 - Add usage function
+
+For 2.0.0
+- Add bootstrap ruby script, which is OS agnostic
