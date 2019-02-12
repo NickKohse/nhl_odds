@@ -27,20 +27,20 @@ A program which calculates odds for NHL games, and possibly playoff odds in the 
 - Specified by command line flags
 ### Flags
 - 'g' generate: generate odds for todays games store results in a file
-- 's' <int> simulate: simulate some number of runs through the rest of the season, specified by the passed integer. Return playoff odds [Planned]
-- 'a' archive: move old generated odds files to an archive to speed up checking [Planned]
+- 's' <int> simulate: simulate some number of runs through the rest of the season, specified by the passed integer. Return playoff odds
+- 'd' delete: delete old results files from before checked_to date
 - 'c' check: check generated odds against actual results and report accuracy
 
 ## Future Improvements
 - Make a system for weighing the factors differently(a function to do this would be good)
-- Add the option of archiving/deleteing old results files
 - Run a preformance benchmark and try to imporve on it by any means possible
 - Add playoff simulation, showing who is predicted to win each round
 
 ## Versions
 - 1.0.0: Basic system generate a file for the results of a daily odds generation and can check the results of past generated odds
-- 1.1.0: Fix a number of bugs, add more factors to odds weighing, reduce calls to NHL stats API
+- 1.1.0: Fix a number of bugs, add more factors to odds weighing, reduce calls to NHL stats API(the 1.1.0 tag not the v1.1.0)
+- 2.0.0: Add season simulation and bootstrap script
 
 ## Branches
 - master: Working project that can simulate games on a given day
-- season_sim: Will be able to simulate the odds of teamss making the playoffs, work in progress
+- season_sim: Will be able to simulate the odds of teamss making the playoffs, work in progress(deleted)
