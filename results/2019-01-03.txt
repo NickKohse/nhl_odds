@@ -1,8 +1,0 @@
-2018020622 0.4816312198597468 Calgary Flames @ Boston Bruins
-2018020623 0.45297332898646986 Florida Panthers @ Buffalo Sabres
-2018020625 0.4485501380826569 Carolina Hurricanes @ Philadelphia Flyers
-2018020624 0.5831105856091826 Chicago Blackhawks @ New York Islanders
-2018020626 0.5441736960946078 Vancouver Canucks @ Montréal Canadiens
-2018020627 0.4102037736749141 Washington Capitals @ St. Louis Blues
-2018020628 0.36944685604856253 Tampa Bay Lightning @ Los Angeles Kings
-2018020621 0.6035266249897614 Minnesota Wild @ Toronto Maple Leafs

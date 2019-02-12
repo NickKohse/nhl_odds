@@ -1,5 +1,0 @@
-2018020390 0.41843266603234347 Buffalo Sabres @ Florida Panthers
-2018020391 0.5346389664850828 New Jersey Devils @ Washington Capitals
-2018020392 0.5386726228678894 Anaheim Ducks @ Carolina Hurricanes
-2018020393 0.592166131615912 St. Louis Blues @ Colorado Avalanche
-2018020394 0.6090172694888104 Los Angeles Kings @ Calgary Flames

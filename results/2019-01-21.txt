@@ -1,4 +1,0 @@
-2018020757 0.5694300686574602 Minnesota Wild @ Vegas Golden Knights
-2018020758 0.43378267047430885 San Jose Sharks @ Florida Panthers
-2018020756 0.47791403112900127 Nashville Predators @ Colorado Avalanche
-2018020759 0.4978229034234378 St. Louis Blues @ Los Angeles Kings

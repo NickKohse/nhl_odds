@@ -1,4 +1,0 @@
-2018020475 0.4628717112595924 Vegas Golden Knights @ New York Islanders
-2018020476 0.3653958034515931 Pittsburgh Penguins @ Chicago Blackhawks
-2018020477 0.5848357202391715 Philadelphia Flyers @ Calgary Flames
-2018020478 0.45413525280421446 Dallas Stars @ Anaheim Ducks

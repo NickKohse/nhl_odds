@@ -1,6 +1,0 @@
-2018020615 0.4518298229995882 Vancouver Canucks @ Ottawa Senators
-2018020616 0.38044874258054595 Calgary Flames @ Detroit Red Wings
-2018020617 0.4491999465406662 Pittsburgh Penguins @ New York Rangers
-2018020618 0.5377732948781645 New Jersey Devils @ Dallas Stars
-2018020619 0.45939163762757157 San Jose Sharks @ Colorado Avalanche
-2018020620 0.5155204916182528 Edmonton Oilers @ Arizona Coyotes

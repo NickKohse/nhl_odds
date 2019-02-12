@@ -1,5 +1,0 @@
-2018020512 0.4912136792106063 Anaheim Ducks @ Pittsburgh Penguins
-2018020513 0.4725532673496347 Vegas Golden Knights @ Columbus Blue Jackets
-2018020514 0.5233356279692354 Boston Bruins @ Montréal Canadiens
-2018020515 0.38964997625933984 Nashville Predators @ Ottawa Senators
-2018020516 0.5305461665601232 New York Islanders @ Colorado Avalanche

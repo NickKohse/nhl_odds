@@ -1,6 +1,0 @@
-2018020706 0.5831987571195106 Colorado Avalanche @ Toronto Maple Leafs
-2018020707 0.5544674936981006 Chicago Blackhawks @ New Jersey Devils
-2018020708 0.4009299574505932 Minnesota Wild @ Philadelphia Flyers
-2018020709 0.5140066697828405 St. Louis Blues @ Washington Capitals
-2018020705 0.5691098822822488 Montréal Canadiens @ Boston Bruins
-2018020710 0.5006538479309409 Buffalo Sabres @ Edmonton Oilers

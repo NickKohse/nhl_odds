@@ -1,7 +1,0 @@
-2018020629 0.5124187149563617 Winnipeg Jets @ Pittsburgh Penguins
-2018020630 0.39816653986312633 Nashville Predators @ Detroit Red Wings
-2018020631 0.4420535466948064 Columbus Blue Jackets @ Carolina Hurricanes
-2018020632 0.505909129957185 Washington Capitals @ Dallas Stars
-2018020633 0.47275498621675316 New York Rangers @ Colorado Avalanche
-2018020634 0.5284900529343829 New Jersey Devils @ Arizona Coyotes
-2018020635 0.3833278408944924 Vegas Golden Knights @ Anaheim Ducks

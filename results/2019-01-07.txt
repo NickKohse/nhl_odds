@@ -1,5 +1,0 @@
-2018020652 0.541514796729787 Nashville Predators @ Toronto Maple Leafs
-2018020653 0.4498715689787849 St. Louis Blues @ Philadelphia Flyers
-2018020654 0.4844554763077025 Minnesota Wild @ Montréal Canadiens
-2018020655 0.3668908710838195 Calgary Flames @ Chicago Blackhawks
-2018020656 0.5718603445605759 Los Angeles Kings @ San Jose Sharks

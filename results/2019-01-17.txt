@@ -1,7 +1,0 @@
-2018020726 0.5517976759268688 St. Louis Blues @ Boston Bruins
-2018020727 0.6321754898204602 New Jersey Devils @ New York Islanders
-2018020728 0.5351734918780233 Chicago Blackhawks @ New York Rangers
-2018020729 0.5836297636077055 Toronto Maple Leafs @ Tampa Bay Lightning
-2018020730 0.5044986825733198 Winnipeg Jets @ Nashville Predators
-2018020731 0.6238351332858418 Anaheim Ducks @ Minnesota Wild
-2018020732 0.5986748645113691 Los Angeles Kings @ Dallas Stars

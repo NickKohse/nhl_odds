@@ -1,7 +1,0 @@
-2018020257 0.5770065075921909 New Jersey Devils @ Winnipeg Jets
-2018020256 0.5862068965517242 Vegas Golden Knights @ Boston Bruins
-2018020258 0.475 Calgary Flames @ San Jose Sharks
-2018020259 0.5 Colorado Avalanche @ Edmonton Oilers
-2018020253 0.41463414634146334 Minnesota Wild @ St. Louis Blues
-2018020254 0.5314960629921259 Ottawa Senators @ Florida Panthers
-2018020255 0.5 Arizona Coyotes @ Washington Capitals

@@ -1,6 +1,0 @@
-2018020286 0.35867297741106086 Boston Bruins @ Dallas Stars
-2018020287 0.5148418077730582 Buffalo Sabres @ Winnipeg Jets
-2018020288 0.5181686787053263 Los Angeles Kings @ Chicago Blackhawks
-2018020289 0.5163044189023567 Washington Capitals @ Colorado Avalanche
-2018020290 0.3766041392429889 St. Louis Blues @ Vegas Golden Knights
-2018020291 0.43984887742697915 Toronto Maple Leafs @ Anaheim Ducks

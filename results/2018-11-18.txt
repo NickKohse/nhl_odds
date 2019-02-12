@@ -1,5 +1,0 @@
-2018020303 0.4950027859623577 Dallas Stars @ New York Islanders
-2018020304 0.4919840689796481 New Jersey Devils @ Carolina Hurricanes
-2018020305 0.3278155656890938 Minnesota Wild @ Chicago Blackhawks
-2018020307 0.4608329578179768 Colorado Avalanche @ Anaheim Ducks
-2018020306 0.4880348532305347 Vegas Golden Knights @ Edmonton Oilers

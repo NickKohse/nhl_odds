@@ -1,5 +1,0 @@
-2018020377 0.5124717054868982 St. Louis Blues @ Detroit Red Wings
-2018020378 0.5151624835852537 Anaheim Ducks @ Florida Panthers
-2018020379 0.567939121241697 San Jose Sharks @ Toronto Maple Leafs
-2018020380 0.5377550502542436 Dallas Stars @ Calgary Flames
-2018020381 0.5522196115282781 Pittsburgh Penguins @ Colorado Avalanche
