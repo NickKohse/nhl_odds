@@ -1,8 +1,0 @@
-2018020487 0.40912207883623286 Vegas Golden Knights @ New Jersey Devils
-2018020488 0.49920270309859716 Arizona Coyotes @ New York Rangers
-2018020489 0.450191410628464 Boston Bruins @ Pittsburgh Penguins
-2018020490 0.5074442722264197 Ottawa Senators @ Detroit Red Wings
-2018020491 0.4278396456714379 Washington Capitals @ Carolina Hurricanes
-2018020492 0.46867182451923434 Colorado Avalanche @ St. Louis Blues
-2018020493 0.29989411792791304 Winnipeg Jets @ Chicago Blackhawks
-2018020494 0.5760742904622697 Philadelphia Flyers @ Edmonton Oilers

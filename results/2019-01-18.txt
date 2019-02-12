@@ -1,7 +1,0 @@
-2018020733 0.3789167247936758 Toronto Maple Leafs @ Florida Panthers
-2018020734 0.529388646016936 Montréal Canadiens @ Columbus Blue Jackets
-2018020735 0.5099138044140217 New York Islanders @ Washington Capitals
-2018020736 0.595232874699848 Ottawa Senators @ Carolina Hurricanes
-2018020737 0.6304757512815298 Detroit Red Wings @ Calgary Flames
-2018020738 0.44229594008370066 Pittsburgh Penguins @ Arizona Coyotes
-2018020739 0.4451995212607518 Buffalo Sabres @ Vancouver Canucks

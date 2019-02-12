@@ -1,8 +1,0 @@
-2018020559 0.39865036703020074 Columbus Blue Jackets @ New Jersey Devils
-2018020560 0.41982426446391935 Boston Bruins @ Carolina Hurricanes
-2018020562 0.4928575130881131 Florida Panthers @ Chicago Blackhawks
-2018020561 0.5019574541489129 Philadelphia Flyers @ New York Rangers
-2018020563 0.5973847083433739 Detroit Red Wings @ Toronto Maple Leafs
-2018020565 0.5728334057677662 Los Angeles Kings @ Vegas Golden Knights
-2018020566 0.583684332721897 Arizona Coyotes @ San Jose Sharks
-2018020564 0.5256962333294436 New York Islanders @ Dallas Stars

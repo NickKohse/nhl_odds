@@ -1,4 +1,0 @@
-2018020260 0.4865815206497856 Vancouver Canucks @ New York Rangers
-2018020261 0.6468910725989798 Chicago Blackhawks @ Carolina Hurricanes
-2018020262 0.38311496870873496 Columbus Blue Jackets @ Dallas Stars
-2018020263 0.4538440786799641 Nashville Predators @ Anaheim Ducks

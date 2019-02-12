@@ -1,7 +1,0 @@
-2018020505 0.4675536466048251 Vegas Golden Knights @ New York Rangers
-2018020506 0.4341308757647211 Arizona Coyotes @ Carolina Hurricanes
-2018020507 0.4470139613044309 Calgary Flames @ St. Louis Blues
-2018020508 0.5437272819082125 Buffalo Sabres @ Boston Bruins
-2018020509 0.3750170157840947 San Jose Sharks @ Chicago Blackhawks
-2018020510 0.4738135002222879 Tampa Bay Lightning @ Winnipeg Jets
-2018020511 0.4556876379281583 Edmonton Oilers @ Vancouver Canucks

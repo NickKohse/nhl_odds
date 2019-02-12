@@ -1,4 +1,0 @@
-2018020443 0.5490394995986869 Carolina Hurricanes @ Anaheim Ducks
-2018020440 0.5352799436475082 San Jose Sharks @ Dallas Stars
-2018020441 0.6696675552252841 St. Louis Blues @ Winnipeg Jets
-2018020442 0.46637806295297896 Minnesota Wild @ Edmonton Oilers

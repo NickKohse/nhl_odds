@@ -1,5 +1,6 @@
 require 'net/http'
 require 'json'
+require 'date'
 
 require_relative 'team_strength.rb'
 require_relative 'team_compare.rb'
@@ -106,14 +107,18 @@ def simulate_season(n)
 	season.simulate_season_controller(n.to_i)
 end
 
-def archive
-	puts "Work, in progress"
-	exit 0
+def delete
+	checked_to = DateTime.parse(File.read(CHECKED_TO_FILE))
+	Dir.entries("results").sort.each do |file|
+		next if file == "." or file == ".."
+		file_date = DateTime.parse(file.chomp(".txt"))
+		File.delete("results/#{file}") if checked_to > file_date
+	end
 end
 
 def usage
 	puts "==============================NHL_ODDS Usage==============================
--a --archive : Archive the old results files [Planned]
+-d --delete : Delete the old results files
 -c --check :  past results to determine lifetime system accuracy
 -g --generate : Generate the odds for todays games, save results in file
 -h --help : Display this help message
@@ -136,8 +141,8 @@ else
 		when "-s", "--simulate"
 			usage if ARGV.length != 2
 			simulate_season(ARGV[1])
-		when "-a", "--archive"
-			#archive the old results files, ie move them somewhere else and maybe compress them
+		when "-d", "--delete"
+			delete
 		else
 			puts "Invalid option, see usage:\n"
 			usage
