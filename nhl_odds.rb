@@ -60,6 +60,7 @@ def check_all_generated_odds
 	end
 
 	for i in (index_of_unchecked)..(results.length - 1)
+		next if results[i] == ".." || results[i] =="."
 		if results[i].chomp(".txt") == Time.now.strftime("%Y-%m-%d")
 			#don't want to check results for todays games, as they haven't finished yet
 			latest_is_today = true
