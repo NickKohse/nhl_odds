@@ -4,7 +4,20 @@ require 'json'
 require_relative 'team_strength.rb'
 require_relative 'constants.rb'
 
+###
+# A class composed of two team strength objects, used to compare various factors between those objects
+# for the purpose of generating odds for games between them
+###
 class Team_Compare
+	###
+	# Constructor
+	# Argument home: Team_Strength, the home team
+	# Argument away: Team_Strength, the away team 
+	# Argument season_sim: bool, will this be used in the contet of a season simulation, defualt false
+	# Argument home_ff: int, home forward factor, default 1
+	# Argument away_ff: int, away forward factor, default 1
+	# No Return
+	###
 	def initialize(home, away, season_sim=false, home_ff=1, away_ff=1)
 		@home = home
 		@away = away	
@@ -13,12 +26,22 @@ class Team_Compare
 		@away_ff = away_ff
 	end
 	
+	###
+	# Compare the two given teams
+	# No Arguments
+	# Return: float, the chance of the home team winning between 0 and 1
+	###
 	def compare
 		calculate_factors
 		calculate_h2h_factor
 		return determine_overall_strength_factor
 	end
 	
+	###
+	# Compare the Team_Strength objects with each other to get the factors
+	# No Arguments 
+	# No Return
+	###
 	def calculate_factors
 		@record_factor = @home.team_info["record_factor"] / (@away.team_info["record_factor"] + @home.team_info["record_factor"])
 		shots_for_factor = @home.team_info["shots_for"] / (@away.team_info["shots_for"] + @home.team_info["shots_for"])
@@ -32,6 +55,11 @@ class Team_Compare
 		@forward_factor = @home_ff / (@home_ff + @away_ff)
 	end
 	
+	###
+	# Combine the factors with the appropriate multipliers to create the odds of a home team win
+	# No Arguments
+	# Return: float, the chance of the home team winning between 0 and 1
+	###
 	def determine_overall_strength_factor
 		h2h_multiplier = @h2h_games * 0.05
 		record_multiplier = 0.55 - h2h_multiplier #will need to change this to work for playoffs
@@ -48,6 +76,11 @@ class Team_Compare
 		return (@record_factor * record_multiplier) + (@shots_factor * 0.10) + (@special_teams_factor * 0.10) + (@recent_factor * recent_multiplier) + (@venue_factor * venue_multiplier) + (@h2h_factor * h2h_multiplier) + (@forward_factor * forward_multiplier)
 	end
 	
+	###
+	# Compare the games the home and away team have played against each other to get the head 2 head factor
+	# No Arguements
+	# No Return
+	###
 	def calculate_h2h_factor
 		home_games_played = @home.team_info["completed_schedule"]
 		wins = 0

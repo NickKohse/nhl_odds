@@ -1,5 +1,5 @@
 # NHL Odds
-A program which calculates odds for NHL games, and possibly playoff odds in the future
+A program which calculates odds for NHL games, as well as chances of making the playoffs
 ## Algorithm
 ### Six Factors
 - Overall Record

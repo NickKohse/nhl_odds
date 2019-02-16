@@ -7,6 +7,11 @@ require_relative 'team_compare.rb'
 require_relative 'constants.rb'
 require_relative 'season.rb'
 
+###
+# A function which generates odds for todays games and writes a text file with it's reults
+# No Arguments
+# No Return
+###
 def do_daily_prediction
 	start_time = Time.now
 	today = Time.now.strftime("%Y-%m-%d")
@@ -41,6 +46,11 @@ def do_daily_prediction
 	puts "\nDid daily simulation of #{games.length} games in #{end_time - start_time} seconds"
 end
 
+###
+# Checks result files up to todays date to see if the team with > 50% chance to win actually won 
+# No Arguments
+# No Return
+###
 def check_all_generated_odds
 	checked_to = File.read(CHECKED_TO_FILE)
 	past_results = File.read(HIT_MISS_FILE)
@@ -102,12 +112,22 @@ def check_all_generated_odds
 	hit_miss.close
 end
 
+###
+# Simulates the nhl season <n> times, prints the % chance a team makes the playoffs
+# Argument n: number of time to run simulation
+# No Return
+###
 def simulate_season(n)
 	abort("Second argument must be an integer") if n.to_i.to_s != n
 	season = Season.new
 	season.simulate_season_controller(n.to_i)
 end
 
+###
+# Deletes all results files up to the CHECKED_TO date
+# No Arguments
+# No Return
+###
 def delete
 	checked_to = DateTime.parse(File.read(CHECKED_TO_FILE))
 	Dir.entries("results").sort.each do |file|
@@ -117,6 +137,11 @@ def delete
 	end
 end
 
+###
+# Prints the usage info
+# No Arguements
+# No Return
+###
 def usage
 	puts "==============================NHL_ODDS Usage==============================
 -d --delete : Delete the old results files

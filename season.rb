@@ -5,18 +5,25 @@ require_relative 'team_strength.rb'
 require_relative 'constants.rb'
 require_relative 'team_compare.rb'
 
+###
+# Class which represents and simulates an NHL season
+###
 class Season
+	###
+	# Retrieve infromation about the season to date from the NHL stats API
+	# No Arguments
+	# No Return
+	###
 	def initialize
 		@remaining_schedule = get_remaining_schedule
 		@standings = get_standings
 	end
 	
-	def test
-		sc = @standings
-		add_points(20, sc)
-		puts sc
-	end
-	
+	###
+	# Get the current standing from the NHL stats API
+	# No Arguments
+	# Return: hash, the standings
+	###
 	def get_standings
 		response = Net::HTTP.get(NHL_STATS_API_HOST, "/api/v1/standings")
 		json_response = JSON.parse(response)
@@ -34,12 +41,22 @@ class Season
 		return div_standings
 	end
 	
+	###
+	# Gets the remaining schedule
+	# No Arguments
+	# Return: hash, schedule remaining 
+	###
 	def get_remaining_schedule
 		response = Net::HTTP.get(NHL_STATS_API_HOST, "/api/v1/schedule?startDate=#{Time.now.strftime("%Y-%m-%d")}&endDate=#{SEASON_END_DATE}")
 		json_response = JSON.parse(response)
 		return json_response["dates"]
 	end
 
+	###
+	# Give a random factor to each team to make season simulation less uniform among threads
+	# No Arguments
+	# Return: hash, a hash with forward factors mapped to team id's
+	###
 	def gen_forward_factors
 		forward_factors = Hash.new
 		@strengths.each do |id, v|
@@ -48,6 +65,12 @@ class Season
 		return forward_factors
 	end
 	
+	###
+	# Adds points to the standings
+	# Argument: id, the id of th team that gets the points
+	# Argument: standings, the hash that represents the standings
+	# Argument: points, the number of points to add to that team
+	###
 	def add_points(id, standings, points)
 		standings.each do |div|
 			if div[1].key?(id)
@@ -56,6 +79,11 @@ class Season
 		end
 	end
 
+	###
+	# Used to determine which team should be ahead in the standings in the case of a tie at the end of the simulation
+	# Argument: div, a hash representing the division with potential ties in it
+	# Return: hash, the division after ties have been fixed 
+	###
 	def tie_breaker(div)
 		i = 0
 		while i < 4 #only go this far becuase teams out of top five dont matter
@@ -73,6 +101,14 @@ class Season
 		return div
 	end
 	
+	###
+	# Given two divisions in the conference this determines which teams are in the playoffs
+	# Argument div1: the first division
+	# Argument div2: the second division
+	# Return: Array, id's of playoff teams
+	# Return: int, the id of the top team in the conference
+	# Return: int, the unmber of point the top team had
+	###
 	def determine_playoff_spots(div1, div2)
 		playoff_teams = Array.new
 		sorted1 = tie_breaker(div1.sort_by { |k,v| -v })
@@ -113,6 +149,11 @@ class Season
 		return {:teams => playoff_teams, :top_id => top_conf , :top_points => top_conf_points}
 	end
 
+	###
+	# Determines if the losing team of a game should be getting a point or not
+	# Argument id: the id of the team
+	# Return: bool, true for a point to be added false otherwise
+	###
 	def ot_point(id)
 		randomizer = Random.new
 		ot_point = randomizer.rand
@@ -120,6 +161,13 @@ class Season
 		return false
 	end
 	
+	###
+	# Simulates the NHL season from the current date on
+	# No Arguments
+	# Return: hash, infromation about the western playoff teams
+	# Return: hash, information about the eastern playoff teams
+	# Return: int, the id of the top team in the league
+	###
 	def simulate_season
 		forward_factors = gen_forward_factors
 		randomizer = Random.new
@@ -148,6 +196,11 @@ class Season
 		return {:west => west_playoff_info[:teams], :east => east_playoff_info[:teams], :pres => pres_id}
 	end
 
+	###
+	# Manages <n> threads running simulate_season aggregetes and prints results
+	# Argument n: the number of threads to use, 1 per simulation
+	# No Return
+	###
 	def simulate_season_controller(n)
 		threads = Array.new(n)
 		i = 0

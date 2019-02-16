@@ -3,7 +3,14 @@ require 'json'
 
 require_relative 'constants.rb'
 
+###
+# A class which gathers and stores various infromation about an nhl team for the stats API
+###
 class Team_Strength
+	###
+	# Populate team_info hashwith relevant data
+	# Arguement id: int, the id of the team in the NHL stats API
+	###
 	def initialize(id)
 		#store the values in a hash, or just extract the already existing hash to reduce the number of attr_readers
 		@team_info = Hash.new
@@ -23,18 +30,33 @@ class Team_Strength
 		get_venue_factors
 	end
 	
+	###
+	# Retrieves team data from the stats API, and parses the JSON it recieves into a hash
+	# No Arguments
+	# Return: hash, Stats for this team
+	###
 	def get_team_stats
 		response = Net::HTTP.get(NHL_STATS_API_HOST, "/api/v1/teams/#{@team_id}?expand=team.stats")
 		json_response = JSON.parse(response)
 		return json_response["teams"][0]["teamStats"][0]["splits"][0]["stat"]
 	end
 	
+	###
+	# Retrieves list of games a team has been in this season
+	# No Arguments
+	# Return: hash, the games which have been completed already
+	###
 	def get_completed_schedule
 		response = Net::HTTP.get(NHL_STATS_API_HOST, "/api/v1/schedule?teamId=#{@team_id}&startDate=#{SEASON_START_DATE}&endDate=#{(Time.now - 86400).strftime("%Y-%m-%d")}")
 		json_response = JSON.parse(response)
 		return json_response["dates"]
 	end
 	
+	###
+	# Determines strength factor based off tems recent games
+	# No Arguments
+	# Return: float, number of recent wins divided by number of recent games
+	###
 	def get_recent_factor
 		last_x = 7
 		index = @team_info["completed_schedule"].length - 1
@@ -54,6 +76,11 @@ class Team_Strength
 		return wins.to_f / last_x
 	end
 	
+	###
+	# Determines strength factors based off teams home and away perfromances
+	# No Arguments
+	# No Return
+	###
 	def get_venue_factors
 		home_w = 0
 		home_g = 0
