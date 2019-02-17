@@ -32,8 +32,6 @@ A program which calculates odds for NHL games, as well as chances of making the 
 - 'c' check: check generated odds against actual results and report accuracy
 
 ## Future Improvements
-- Make a system for weighing the factors differently(a function to do this would be good)
-- Run a preformance benchmark and try to imporve on it by any means possible
 - Add playoff simulation, showing who is predicted to win each round
 
 ## Versions
