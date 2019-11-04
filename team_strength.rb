@@ -9,7 +9,7 @@ require_relative 'constants.rb'
 class Team_Strength
 	###
 	# Populate team_info hashwith relevant data
-	# Arguement id: int, the id of the team in the NHL stats API
+	# Argument id: int, the id of the team in the NHL stats API
 	###
 	def initialize(id)
 		#store the values in a hash, or just extract the already existing hash to reduce the number of attr_readers

@@ -6,6 +6,7 @@ require_relative 'team_strength.rb'
 require_relative 'team_compare.rb'
 require_relative 'constants.rb'
 require_relative 'season.rb'
+require_relative 'puckline.rb'
 
 ###
 # A function which generates odds for todays games and writes a text file with it's reults
@@ -138,8 +139,23 @@ def delete
 end
 
 ###
+# Prints past puckline results for todays matchups
+# Argument n: number of years back to check results
+# No return
+###
+def puckline(n)
+	years = 3
+	if !n.nil?
+		abort("Second argument must be an integer") if n.to_i.to_s != n
+		years = n.to_i
+	end
+	pl = Puckline.new(years)
+	pl.daily_puckline_history
+end
+
+###
 # Prints the usage info
-# No Arguements
+# No Arguments
 # No Return
 ###
 def usage
@@ -149,7 +165,9 @@ def usage
 -g --generate : Generate the odds for todays games, save results in file
 -h --help : Display this help message
 -s --simulate <int> : Simulate the remainder of the regular season the 
-			  specificed number of times, display playoffs odds"
+			  specificed number of times, display playoffs odds
+-p --puckline [int] : Show how many times in the last n years (defaults to 3) each team in todays
+			  games would win a puckline bet as over and underdog"
 	exit 1
 end
 
@@ -169,6 +187,8 @@ else
 			simulate_season(ARGV[1])
 		when "-d", "--delete"
 			delete
+		when "-p", "--puckline"
+			puckline(ARGV[1])
 		else
 			puts "Invalid option, see usage:\n"
 			usage
