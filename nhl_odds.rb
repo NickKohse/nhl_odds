@@ -38,6 +38,7 @@ def do_daily_prediction
 		away = Team_Strength.new(game["teams"]["away"]["team"]["id"])
 		matchup = Team_Compare.new(home, away)
 		strength_factor = matchup.compare
+		strength_factor = strength_factor.round(4)
 		
 		puts "#{game["teams"]["away"]["team"]["name"]} @ #{game["teams"]["home"]["team"]["name"]} #{strength_factor}"
 		game_results.write("#{game["gamePk"]} #{strength_factor} #{game["teams"]["away"]["team"]["name"]} @ #{game["teams"]["home"]["team"]["name"]}\n")
